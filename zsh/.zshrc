@@ -1,29 +1,40 @@
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export ZSH_FOLDER=$HOME/.config/zsh
-export HOMEBREW_NO_ANALYTICS=1
+# --- NVM Configuration ---
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH=$PATH:$ZSH_FOLDER/scripts
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
+# --- Git aliases ---
+alias gco="git checkout"
+alias gl="git pull"
+alias gp="git push"
 
-source $ZSH_FOLDER/fnm
-source $ZSH_FOLDER/zinit
+# --- Node.js version in prompt ---
+node_version() {
+  if command -v node &> /dev/null; then
+    echo " (node $(node -v))"
+  fi
+}
 
-source $ZSH_FOLDER/keybindings
-source $ZSH_FOLDER/history
-source $ZSH_FOLDER/functions
-source $ZSH_FOLDER/aliases
+# --- Autoload nvmrc if exists ---
+autoload -U add-zsh-hook
 
-source $ZSH_FOLDER/android
-source $ZSH_FOLDER/oh-my-posh
-source $ZSH_FOLDER/pkgx
-source $ZSH_FOLDER/ruby
+load-nvmrc() {
+  if [ -f .nvmrc ]; then
+    nvm use > /dev/null
+  elif [ -n "$NVM_RC_VERSION" ]; then
+    nvm use default > /dev/null
+  fi
+}
 
-source $ZSH_FOLDER/zstyle
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc   # also run it when opening the shell
 
-source $ZSH_FOLDER/fzf
-source $ZSH_FOLDER/fastfetch
+# --- Claude Switch setup ---
+export PATH="$HOME/.local/bin:$PATH"
+alias claude-switch="~/.scripts/claude-switch-multi.sh"
+
+# --- Starship configuration ---
+eval "$(starship init zsh)"
+
+# --- ZSH Plugins ---
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

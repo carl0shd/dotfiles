@@ -1,4 +1,0 @@
-theme_file="${HOME}/.config/zsh/fzf-theme.zsh"
-[[ -r $theme_file ]] && source "$theme_file"
-
-source <(fzf --zsh)

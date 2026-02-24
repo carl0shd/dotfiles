@@ -1,55 +1,87 @@
-# Dotfiles Configuration
+# Dotfiles
 
-This repository contains my personal dotfiles for various tools and applications like tmux, Alacritty, and Zsh. It uses GNU Stow to manage and link these configuration files easily across different systems.
+Personal dotfiles for macOS. Uses [GNU Stow](https://www.gnu.org/software/stow/) to symlink configs.
 
-## Getting Started
+## What's included
 
-### Prerequisites
+| Package | Description |
+|---------|-------------|
+| `zsh/` | Shell config (NVM, Starship, git aliases, plugins) |
+| `ghostty/` | Terminal config (Hack Nerd Font, theme Primary) |
+| `cursor/` | Editor settings and extensions list |
+| `homebrew/` | Brew install script (CLI tools, casks, fonts) |
+| `scripts/` | Claude Code multi-account switcher |
+| `backup/` | Backup and restore scripts for full Mac migration |
 
-Before you clone this repository and start using the dotfiles, ensure you have GNU Stow installed on your system. You can install Stow using the following command on most Unix-like operating systems:
+## New Mac Setup
 
-```bash
-sudo apt-get install stow # Debian/Ubuntu
-brew install stow # macOS
-```
-
-### Installation
-
-To clone the repository and set up the dotfiles, follow these steps:
-
-1. Clone the repository:
+### 1. Install Homebrew
 
 ```bash
-git clone https://github.com/maximux13/dotfiles.git
-cd dotfiles
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2. Deploy the dotfiles using Stow. For example, to set up the tmux configuration:
+### 2. Clone this repo
 
 ```bash
-stow tmux
+git clone https://github.com/maximux13/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-Repeat the above step for each configuration set you want to apply, like `alacritty`, `zsh`, etc.
-
-### Homebrew Installation (macOS)
-
-If you are using macOS, you can use the provided `install.sh` script to install all the necessary dependencies via Homebrew. To do so, run the following commands:
+### 3. Install apps and tools
 
 ```bash
-cd path/to/dotfiles/homebrew
-chmod +x install.sh
-./install.sh
+chmod +x homebrew/install.sh
+./homebrew/install.sh
 ```
 
-## Customization
+### 4. Apply configs with Stow
 
-Feel free to fork this repository and customize the dotfiles to suit your needs. You can modify the existing files or add new configurations and use Stow to manage them as demonstrated above.
+```bash
+brew install stow
+stow zsh       # ~/.zshrc, ~/.zprofile
+stow ghostty   # ~/.config/ghostty/config
+```
 
-## Contributing
+### 5. Install ZSH plugins
 
-Contributions to improve these dotfiles or add new configurations are always welcome. Please feel free to submit a pull request or open an issue if you have suggestions or improvements.
+```bash
+mkdir -p ~/.zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+```
+
+### 6. Setup Cursor
+
+```bash
+# Install extensions
+cat cursor/extensions.txt | xargs -L 1 cursor --install-extension
+
+# Copy settings
+cp cursor/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+```
+
+### 7. Scripts
+
+```bash
+stow scripts   # ~/.scripts/claude-switch-multi.sh
+```
+
+## Backup / Restore
+
+For full Mac migration (secrets, dotfiles, Homebrew, workspace):
+
+```bash
+# Backup to external drive
+./backup/backup.sh /Volumes/USB/
+
+# Backup including workspace projects
+./backup/backup.sh /Volumes/USB/ --workspace
+
+# Restore from backup
+./backup/restore.sh /Volumes/USB/mac-backup-YYYY-MM-DD/
+```
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+[MIT](LICENSE)

@@ -19,10 +19,10 @@ echo "Installing Homebrew packages..."
 # Git and GitHub
 brew install git
 brew install gh
-brew install git-standup
 
 # Node and Package Managers
 brew install nvm
+brew install yarn
 brew install pnpm
 
 # Shell and Utilities
@@ -55,38 +55,44 @@ brew install act
 brew install --cask 1password
 brew install --cask ghostty
 brew install --cask slack-cli
-brew install --cask rectangle
-brew install --cask raycast
+brew install --cask notion-calendar
+brew install --cask spotify
+brew install --cask linear-linear
+brew install jsattler/tap/bettercapture
+brew install --cask steipete/tap/codexbar
 
 # Browsers
 brew install --cask arc
-brew install --cask firefox
 brew install --cask google-chrome
-brew install --cask brave-browser
 
 # Development
 brew install --cask orbstack
+brew install --cask postman
+brew install --cask cursor
 brew install --cask ngrok
-brew install --cask visual-studio-code@insiders
-brew install --cask zed
-brew install --cask codex
 brew install --cask claude-code
+brew install --cask xcodes-app
+brew install --cask minisim
+
+# 3D Printing and Modeling
+brew install --cask bambu-studio
+brew install --cask blender
 
 # Messaging
-brew install --cask signal
 brew install --cask zoom
+brew install --cask discord
 
 # Fonts
-brew install --cask font-hasklug-nerd-font
-brew install --cask font-lilex-nerd-font
-brew install --cask font-monaspace
-brew install --cask font-google-sans-code
+brew install --cask font-hack-nerd-font
 
 # Design
 brew install --cask figma
 
 # Misc
-brew install --cask appcleaner
-brew install --cask surfshark
+brew install --cask stats
+brew install --cask anydesk
+brew install --cask vlc
+brew install --cask qbittorrent
+cask "stremio"
 
 echo "Homebrew packages installed."

@@ -93,6 +93,6 @@ brew install --cask stats
 brew install --cask anydesk
 brew install --cask vlc
 brew install --cask qbittorrent
-cask "stremio"
+brew install --cask stremio
 
 echo "Homebrew packages installed."

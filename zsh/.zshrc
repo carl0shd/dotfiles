@@ -1,6 +1,6 @@
 # --- NVM Configuration ---
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
 # --- Git aliases ---
 alias gco="git checkout"
@@ -31,6 +31,12 @@ load-nvmrc   # also run it when opening the shell
 # --- Claude Switch setup ---
 export PATH="$HOME/.local/bin:$PATH"
 alias claude-switch="~/.scripts/claude-switch-multi.sh"
+
+# --- Zoxide (smart cd) ---
+eval "$(zoxide init zsh)"
+
+# --- Fzf (fuzzy finder) ---
+source <(fzf --zsh)
 
 # --- Starship configuration ---
 eval "$(starship init zsh)"

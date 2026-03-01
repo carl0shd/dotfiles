@@ -6,9 +6,10 @@ Personal dotfiles for macOS. Uses [GNU Stow](https://www.gnu.org/software/stow/)
 
 | Package | Description |
 |---------|-------------|
-| `zsh/` | Shell config (NVM, Starship, git aliases, plugins) |
-| `ghostty/` | Terminal config (Hack Nerd Font, theme Primary) |
-| `cursor/` | Editor settings and extensions list |
+| `zsh/` | Shell config (NVM, Oh My Posh, git aliases, plugins) |
+| `ghostty/` | Terminal config (Hack Nerd Font, theme OhMyCustom) |
+| `oh-my-posh/` | Prompt theme configuration |
+| `fastfetch/` | System info on shell launch (config + custom logo) |
 | `homebrew/` | Brew install script (CLI tools, casks, fonts) |
 | `scripts/` | Claude Code multi-account switcher |
 | `backup/` | Backup and restore scripts for full Mac migration |
@@ -39,8 +40,10 @@ chmod +x homebrew/install.sh
 
 ```bash
 brew install stow
-stow zsh       # ~/.zshrc, ~/.zprofile
-stow ghostty   # ~/.config/ghostty/config
+stow zsh          # ~/.zshrc, ~/.zprofile
+stow ghostty      # ~/.config/ghostty/config + themes
+stow oh-my-posh   # ~/.config/oh-my-posh/theme.omp.json
+stow fastfetch    # ~/.config/fastfetch/config.jsonc + logo.txt
 ```
 
 ### 5. Install ZSH plugins

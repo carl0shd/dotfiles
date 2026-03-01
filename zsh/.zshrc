@@ -1,3 +1,6 @@
+# --- Fastfetch (system info on launch) ---
+fastfetch
+
 # --- NVM Configuration ---
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -38,9 +41,13 @@ eval "$(zoxide init zsh)"
 # --- Fzf (fuzzy finder) ---
 source <(fzf --zsh)
 
-# --- Starship configuration ---
-eval "$(starship init zsh)"
+# --- Oh My Posh configuration ---
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
 
 # --- ZSH Plugins ---
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF9248,underline'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#98C379'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#98C379'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#98C379'

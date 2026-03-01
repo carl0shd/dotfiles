@@ -25,7 +25,7 @@ Personal dotfiles for macOS. Uses [GNU Stow](https://www.gnu.org/software/stow/)
 ### 2. Clone this repo
 
 ```bash
-git clone https://github.com/maximux13/dotfiles.git ~/dotfiles
+git clone https://github.com/carl0shd/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 

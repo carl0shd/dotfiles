@@ -54,17 +54,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 ```
 
-### 6. Setup Cursor
-
-```bash
-# Install extensions
-cat cursor/extensions.txt | xargs -L 1 cursor --install-extension
-
-# Copy settings
-cp cursor/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
-```
-
-### 7. Scripts
+### 6. Scripts
 
 ```bash
 stow scripts   # ~/.scripts/claude-switch-multi.sh

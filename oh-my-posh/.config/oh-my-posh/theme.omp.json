@@ -6,7 +6,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#E5C07B",
+          "foreground": "#0184BC",
           "options": {
             "time_format": "03:04pm"
           },
@@ -17,7 +17,7 @@
         {
           "type": "shell",
           "style": "plain",
-          "foreground": "#E06C75",
+          "foreground": "#E45649",
           "options": {
             "mapped_shell_names": {
               "pwsh": "Shell",
@@ -29,12 +29,12 @@
           "template": " \ue795 {{ .Name }}"
         },
         {
-          "foreground": "#F3C267",
+          "foreground": "#986801",
           "foreground_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
-            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
-            "{{ if gt .Behind 0 }}#B388FF{{ end }}"
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#C44F02{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#E45649{{ end }}",
+            "{{ if gt .Ahead 0 }}#A626A4{{ end }}",
+            "{{ if gt .Behind 0 }}#A626A4{{ end }}"
           ],
           "options": {
             "branch_icon": "\ue702 ",
@@ -51,9 +51,9 @@
       "alignment": "right",
       "segments": [
         {
-          "foreground": "#C0A4FF",
+          "foreground": "#A626A4",
           "foreground_templates": [
-            "{{ if gt .Code 0 }}#E06C75{{ end }}"
+            "{{ if gt .Code 0 }}#E45649{{ end }}"
           ],
           "options": {
             "style": "roundrock",
@@ -64,24 +64,24 @@
           "type": "executiontime"
         },
         {
-          "foreground": "#FF9248",
+          "foreground": "#9A3500",
           "style": "plain",
-          "template": " <#555555>|</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB",
+          "template": " <#BABABA>|</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB",
           "type": "sysinfo"
         },
         {
-          "foreground": "#3C873A",
+          "foreground": "#50A14F",
           "options": {
             "fetch_version": true
           },
           "style": "plain",
-          "template": " <#555555>|</> \ue718 {{ .Full }}",
+          "template": " <#BABABA>|</> \ue718 {{ .Full }}",
           "type": "node"
         },
         {
-          "foreground": "#61AFEF",
+          "foreground": "#4078F2",
           "style": "plain",
-          "template": " <#555555>|</> \uf308 {{ .Context }}     ",
+          "template": " <#BABABA>|</> \uf308 {{ .Context }}     ",
           "type": "docker"
         }
       ],
@@ -92,7 +92,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#C8C8C8",
+          "foreground": "#2A2A2A",
           "options": {
             "style": "full"
           },
@@ -108,13 +108,13 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#E06C75",
+          "foreground": "#E45649",
           "style": "plain",
           "template": "\u0021",
           "type": "root"
         },
         {
-          "foreground": "#E06C75",
+          "foreground": "#4078F2",
           "style": "plain",
           "template": "\u276f",
           "type": "text"

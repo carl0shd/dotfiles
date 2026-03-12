@@ -1,3 +1,9 @@
+# --- Tmux auto-start ---
+if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+  tmux new-session -d -s "tab-$$" 2>/dev/null
+  tmux attach-session -t "tab-$$"
+fi
+
 # --- Fastfetch (system info on launch) ---
 fastfetch
 
@@ -31,9 +37,7 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc   # also run it when opening the shell
 
-# --- Claude Switch setup ---
 export PATH="$HOME/.local/bin:$PATH"
-alias claude-switch="~/.scripts/claude-switch-multi.sh"
 
 # --- Zoxide (smart cd) ---
 eval "$(zoxide init zsh)"
@@ -51,3 +55,7 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF9248,underline'
 ZSH_HIGHLIGHT_STYLES[command]='fg=#98C379'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#98C379'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#98C379'
+
+# --- CW (Claude Workspace Manager) ---
+[[ -f "$HOME/.cw/cw-shell-integration.sh" ]] && source "$HOME/.cw/cw-shell-integration.sh"
+export CW_WORKSPACE="$HOME/Documents"

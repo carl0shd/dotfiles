@@ -1,5 +1,4 @@
 theme = OhMyCustom
 shell-integration = zsh
 font-family = Hack Nerd Font
-window-height = 50
-window-width = 185
+window-save-state = always

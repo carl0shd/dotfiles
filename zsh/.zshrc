@@ -1,9 +1,3 @@
-# --- Tmux auto-start ---
-if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
-  tmux new-session -d -s "tab-$$" 2>/dev/null
-  tmux attach-session -t "tab-$$"
-fi
-
 # --- Fastfetch (system info on launch) ---
 fastfetch
 

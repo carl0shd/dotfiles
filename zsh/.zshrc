@@ -53,3 +53,9 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=#98C379'
 # --- CW (Claude Workspace Manager) ---
 [[ -f "$HOME/.cw/cw-shell-integration.sh" ]] && source "$HOME/.cw/cw-shell-integration.sh"
 export CW_WORKSPACE="$HOME/Documents"
+
+# --- Android Configuration ---
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export ANDROID_HOME=/Users/carlosvillalobos/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools

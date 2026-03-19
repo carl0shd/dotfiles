@@ -59,3 +59,8 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME=/Users/carlosvillalobos/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# --- Android emulator shortcut (port 5556 to avoid conflicts) ---
+emu() {
+  emulator -avd "${1:-Pixel_9}" -port "${2:-5556}" >/dev/null 2>&1 &disown
+}

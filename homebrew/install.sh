@@ -59,7 +59,6 @@ brew install --cask notion-calendar
 brew install --cask spotify
 brew install --cask linear-linear
 brew install jsattler/tap/bettercapture
-brew install --cask steipete/tap/codexbar
 
 # Browsers
 brew install --cask arc
